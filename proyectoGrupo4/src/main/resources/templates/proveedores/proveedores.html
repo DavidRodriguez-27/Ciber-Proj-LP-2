@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Proveedores</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+    <style>
+        .title-container {
+            display: flex;
+            align-items: center;
+        }
+        .title-container img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        .fixed-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        /* Ajusta el espaciado */
+        .content {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+        /* Mantiene fijo el encabezado de la tabla */
+        thead th {
+            position: sticky;
+            top: 0px; /* Altura ajustada según el encabezado y el formulario */
+            background-color: white;
+            z-index: 999;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container my-2">
+    <div class="fixed-header">
+    <div class="title-container d-flex align-items-center">
+        <img src="https://www.pngall.com/wp-content/uploads/8/Restaurant-Logo-PNG-High-Quality-Image.png" alt="logo">
+        <h1>Control de Proveedores</h1>
+    </div>
+
+    <!-- consulta de proveedor especifico -->
+    <form th:action="@{/proveedores/buscarProveedor}" method="get" class="row g-3 align-items-center my-3">
+        <div class="col-md-4 d-flex align-items-center">
+            <input type="text" id="categoria" name="categoriaProducto" class="form-control" placeholder="Busqueda por categoria de producto">
+        </div>
+        <div class="col-auto">
+            <input type="text" id="ruc" name="ruc" class="form-control" placeholder="Ingrese RUC">
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Buscar</button>
+        </div>
+        <div class="col-auto ms-auto">
+            <a th:href="@{/proveedores/nuevoProveedor}"   class="btn btn-primary btn-sm mb-3" > Nuevo Proveedor </a>
+        </div>
+    </form>
+</div>
+    <!-- consulta de proveedor especifico -->
+
+<div class="content">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Id Proveedor</th>
+            <th>Razón Social</th>
+            <th>Ruc</th>
+            <th>Telefono</th>
+            <th>Dirección</th>
+            <th>Categoria Producto</th>
+            <th>Forma de Pago</th>
+            <th> Acciones </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="proveedor : ${listaProveedores}">
+            <td th:text="${proveedor.getId()}"></td>
+            <td th:text="${proveedor.getRazonSocial()}"></td>
+            <td th:text="${proveedor.getRuc()}"></td>
+            <td th:text="${proveedor.getTelefono()}"></td>
+            <td th:text="${proveedor.getDireccion()}"></td>
+            <td th:text="${proveedor.getCategoriaProducto()}"></td>
+            <td th:text="${proveedor.getFormaPago()}"></td>
+            <td>
+                <a th:href="@{/proveedores/actualizarProveedor/{id}(id=${proveedor.id})}" >Actualizar</a>
+                <a th:href="@{/proveedores/eliminarProveedor/{id}(id=${proveedor.id})}" >Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+</body>
+</html>
