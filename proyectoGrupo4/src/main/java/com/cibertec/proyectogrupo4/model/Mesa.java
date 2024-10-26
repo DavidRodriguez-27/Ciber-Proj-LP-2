@@ -10,7 +10,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-public class Mesas {
+public class Mesa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
