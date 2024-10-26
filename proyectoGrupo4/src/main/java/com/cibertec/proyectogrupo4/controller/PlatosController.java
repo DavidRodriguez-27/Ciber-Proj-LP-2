@@ -17,8 +17,8 @@ public class PlatosController {
     private final PlatosService platosService;
 
     @GetMapping("/platos")
-    public String verPaginaInicio(Model model){
-        model.addAttribute("listarPlatos", platosService.listarPlatos());
+    public String verPaginaPlatos(Model model){
+        model.addAttribute("listaPlatos", platosService.listarPlatos());
         return "platos/platos";
     }
 
