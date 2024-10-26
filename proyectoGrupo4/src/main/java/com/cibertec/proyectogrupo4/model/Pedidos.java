@@ -20,10 +20,15 @@ public class Pedidos {
     @Column(name="id_pedido")
     private Integer id_pedido;
 
+    @ManyToOne
+    @JoinColumn(name = "nombre_plato", nullable = false)
+    private Platos plato;
+
     @Column(name="fechaPedido", nullable = false)
     @Temporal(value=TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaPedido;
+
     @Column(name="estadoPedido", length = 50, nullable = false)
     private String estadoPedido;
 
