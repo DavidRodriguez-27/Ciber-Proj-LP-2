@@ -18,7 +18,9 @@
             <th>Nombre Plato</th>
             <th>Categoria</th>
             <th>Descripcion</th>
+            <th>Disponibilidad</th>
             <th>Precio</th>
+
         </tr>
         </thead>
         <tbody>
@@ -27,6 +29,7 @@
             <td  th:text="${platos.getCategoria()}" ></td>
             <td  th:text="${platos.getDescripcion()}" ></td>
             <td  th:text="${platos.getPrecio()}" ></td>
+            <td  th:text="${platos.getDisponibilidad()}" ></td>
         </tr>
         </tbody>
     </table>

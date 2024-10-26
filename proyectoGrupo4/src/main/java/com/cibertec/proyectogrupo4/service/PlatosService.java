@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface PlatosService {
     List<Platos> listarPlatos();
+    void guardarPlato(Platos plato);
 
 }
