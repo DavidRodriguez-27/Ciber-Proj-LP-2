@@ -9,26 +9,21 @@
 <body>
 <div th:replace="comun/menu.html"></div>
 <div class="container">
-    <h1> Administración de empleados </h1>
+    <h1> Administración de Platos </h1>
     <hr>
-    <h2> Actualizar Empleado</h2>
+    <h2> Actualizar Platos</h2>
     <div class="row justify-content-left">
         <div class="col-md-6">
-            <form action="#" th:action="@{/empleados/guardarEmpleado}"   th:object="${empleado}" method="post">
-                <input type="hidden" th:field="*{id}">
-                <input type="text" th:field="*{nombre}" placeholder="Nombres Empleado" class="form-control mb-4 col-4">
-                <input type="text" th:field="*{apellidoPaterno}" placeholder="Apellido Paterno Empleado" class="form-control mb-4 col-4">
-                <input type="text" th:field="*{apellidoMaterno}" placeholder="Apellido Materno Empleado" class="form-control mb-4 col-4">
-                <input type="email" th:field="*{email}" placeholder="Email" class="form-control mb-4 col-4">
-                <input type="text" th:field="*{direccion}" placeholder="Dirección" class="form-control mb-4 col-4">
-                <input type="text" th:field="*{salario}" placeholder="Salario Empleado" class="form-control mb-4 col-4">
-                <input type="date" th:field="*{fechaIngreso}" placeholder="Fecha ingreso Empleado" class="form-control mb-4 col-4">
-                <!-- Se Agrega campos para el nombre de usuario y la contraseña -->
-                <input type="hidden" th:field="*{usuario.id}">
-                <input type="text" th:field="*{usuario.nombreUsuario}" placeholder="Nombre de Usuario" class="form-control mb-4 col-4">
+            <form action="#" th:action="@{/platos/guardarPlato}"   th:object="${platos}" method="post">
+                <input type="hidden" th:field="*{id_plato}">
+                <input type="text" th:field="*{nombre_plato}" placeholder="Nombres Plato" class="form-control mb-4 col-4">
+                <input type="text" th:field="*{descripcion}" placeholder="Descripcion Plato" class="form-control mb-4 col-4">
+                <input type="text" th:field="*{disponibilidad}" placeholder="Disponibilidad" class="form-control mb-4 col-4">
+                <input type="text" th:field="*{precio}" placeholder="Precio" class="form-control mb-4 col-4">
+                <input type="text" th:field="*{categoria}" placeholder="Categoria" class="form-control mb-4 col-4">
                 <hr>
                 <button type="submit" class="btn btn-info col-2"> Guardar </button>
-                <button type="button" class="btn btn-secondary col-2" onclick="window.location.href='/empleados/listarEmpleados'">Cancelar</button>
+                <button type="button" class="btn btn-secondary col-2" onclick="window.location.href='/platos/listarPlatos'">Cancelar</button>
             </form>
         </div>
     </div>

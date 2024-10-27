@@ -22,7 +22,6 @@ public class PlatosServiceImpl implements PlatosService {
     @Override
     @Transactional
     public void guardarPlato(Platos platos) {
-
         if (platos.getId_plato() == null) {
             platosRepository.save(platos);
         } else {
@@ -30,7 +29,12 @@ public class PlatosServiceImpl implements PlatosService {
                     .orElseThrow(() -> new RuntimeException("Plato no encontrado para el id: " + platos.getId_plato()));
             platosRepository.save(platos);
         }
+    }
 
+    @Override
+    public Platos obtenerPlatosPorId(Integer id) {
+        return platosRepository.findById(id)
+                .orElseThrow( ()->new RuntimeException("Empleado no encontrado para el id: "+id));
     }
 
 }

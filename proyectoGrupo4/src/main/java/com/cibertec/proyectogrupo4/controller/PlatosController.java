@@ -33,6 +33,11 @@ public class PlatosController {
         return "redirect:/platos/platos";
     }
 
+    @GetMapping("/actualizarPlatos/{id}")
+    public String actualizarPlatos(@PathVariable("id") Integer id, Model model){
+        model.addAttribute("platos", platosService.obtenerPlatosPorId(id));
+        return "platos/actualizarPlatos";
+    }
 
 
 }
