@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface PlatosService {
     void guardarPlato(Platos plato);
-    Platos obtenerPlatoPorDescripcion(String descripcion);
+    Platos obtenerPlatoPorNombre(String nombre_plato);
 }

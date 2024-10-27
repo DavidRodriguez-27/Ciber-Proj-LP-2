@@ -15,6 +15,7 @@
 <div class="container my-2">
   <h1>Listado de Pedidos</h1>
   <a th:href="@{/pedidos/nuevoPedido}" class="btn btn-primary btn-sm mb-3">Agregar Pedido</a>
+  <a th:href="@{/pedidos/reportePedidos}" class="btn btn-primary btn-sm mb-3" target="_blank">Generar Reporte PDF</a>
   <table class="table table-striped">
     <thead>
     <tr>
@@ -27,7 +28,7 @@
     <tbody>
     <tr th:each="pedido : ${listaPedidos}">
       <td th:text="${pedido.getId_pedido()}"></td>
-      <td th:text="${pedido.getPlato().getDescripcion()}"></td>
+      <td th:text="${pedido.getPlato().getNombre_plato()}"></td>
       <td th:text="${pedido.getFechaPedido()}"></td>
       <td th:text="${pedido.getEstadoPedido()}"></td>
       <td><a th:href="@{/pedidos/actualizarPedido/{id}(id=${pedido.id_pedido})}" class="btn btn-primary">Actualizar</a>
