@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "tb_clientes")
 @Data
@@ -23,5 +25,7 @@ public class Clientes {
     private String telefono;
     @Column(name="dni", length = 50, nullable = false)
     private Integer dni;
+
+
 
 }
