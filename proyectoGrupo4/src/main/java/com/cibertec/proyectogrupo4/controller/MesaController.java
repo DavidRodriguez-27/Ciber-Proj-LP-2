@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/mesas")
 @RequiredArgsConstructor
@@ -42,4 +44,17 @@ public class MesaController {
         mesaService.eliminarMesa(id_mesa);
         return "redirect:/mesas/listarMesas";
     }
+
+    @GetMapping("/inicioBusquedaMesa")
+    public String inicioBusquedaMesa() {return "mesas/buscarMesa";}
+
+    @GetMapping("/buscarMesa")
+    public String busquedaMesa(Model model,
+                               @RequestParam(value = "estado") String estado) {
+        List<Mesa> lista = mesaService.listarMesasPorEstado(estado);
+        model.addAttribute("listaMesas", lista);
+        model.addAttribute("estado", estado);
+        return "mesas/buscarMesa";
+    }
+
 }

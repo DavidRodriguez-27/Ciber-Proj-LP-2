@@ -1,10 +1,10 @@
 <div id="nav">
   <ul>
     <li>
-      <table>
+      <table class="h-25">
         <tr>
           <td>
-            <img src="http://imgfz.com/i/ftVCAs1.png" id="imgLogo">
+            <img src="https://i.pinimg.com/originals/b6/95/62/b695625effb8e0f594bc02176fdb3b49.png" id="imgLogo" class="img-fluid" width="50" height="auto">
           </td>
           <td style="text-align: center; vertical-align: center">
             <label style="color: white; font-weight: bold">Sistema de Mantenimiento Restaurante </label>
@@ -13,9 +13,15 @@
       </table>
     </li>
     <li><a>Empleados</a></li>
-    <li><a th:href = "@{/mesas/listarMesas}">Mesas</a></li>
+    <li>
+      <a>Mesas</a>
+      <ul>
+        <li><a th:href="@{/mesas/listarMesas}">Lista de Mesas</a></li>
+        <li><a th:href="@{/mesas/inicioBusquedaMesa}">Buscar Mesas</a></li>
+      </ul>
+    </li>
     <li><a>Pedidos</a></li>
-    <li><a>Platos</a></li>
+    <li><a th:href="@{/platos/platos}">Platos</a></li>
     <li><a>Proveedores</a></li>
     <li><a>Almacen</a></li>
 

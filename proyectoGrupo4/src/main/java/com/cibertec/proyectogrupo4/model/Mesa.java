@@ -22,4 +22,7 @@ public class Mesa {
     @Column(name="cantPax", length = 100, nullable = false)
     private Integer cantPax;
 
+    @Column(name = "estado", length = 50, nullable = false)
+    private String estado;
+
 }

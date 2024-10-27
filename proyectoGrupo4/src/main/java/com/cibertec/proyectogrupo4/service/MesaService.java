@@ -9,4 +9,6 @@ public interface MesaService {
     void guardarMesa(Mesa mesa);
     Mesa obtenerMesaPorId(Integer id_mesa);
     void eliminarMesa(Integer id_mesa);
+
+    List<Mesa> listarMesasPorEstado(String estado);
 }

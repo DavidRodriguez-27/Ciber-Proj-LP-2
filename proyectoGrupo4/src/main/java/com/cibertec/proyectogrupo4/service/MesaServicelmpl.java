@@ -36,4 +36,9 @@ public class MesaServicelmpl implements MesaService {
             throw new RuntimeException("Mesa no encontrada");
         }
     }
+
+    @Override
+    public List<Mesa> listarMesasPorEstado(String estado) {
+        return mesaRepository.findMesaByEstado(estado);
+    }
 }

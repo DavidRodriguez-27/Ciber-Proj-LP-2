@@ -16,6 +16,12 @@
         <input type="hidden" th:field="*{id_mesa}">
         <input type="text" th:field="*{numeroMesa}" placeholder="Numero de Mesa" class="form-control mb-4 col-4">
         <input type="text" th:field="*{cantPax}" placeholder="Capacidad de Personas" class="form-control mb-4 col-4">
+        <select name="estado" id="estado" required>
+          <option value="">--Seleccionar estado--</option>
+          <option value="Disponible">Disponible</option>
+          <option value="Ocupada">Ocupada</option>
+          <option value="Reservada">Reservada</option>
+        </select>
         <hr>
         <button type="submit" class="btn btn-info col-2"> Guardar </button>
       </form>
