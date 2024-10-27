@@ -5,6 +5,8 @@ import com.cibertec.proyectogrupo4.model.Platos;
 import java.util.List;
 
 public interface PlatosService {
+    List<Platos> listarPlatos();
     void guardarPlato(Platos plato);
-    Platos obtenerPlatoPorNombre(String nombre_plato);
+    Platos obtenerPlatosPorId(Integer id);
+
 }
