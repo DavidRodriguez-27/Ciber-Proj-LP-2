@@ -47,7 +47,7 @@ public class PedidosController {
     public String guardarPedido(@ModelAttribute("pedido") Pedidos pedido){
 
         String nombrePlato = pedido.getPlato().getNombre_plato();
-        Platos platoExistente = platosService.obtenerPlatoPorNombre(nombrePlato);
+        Platos platoExistente = platosService.obtenerPlatosPorId(pedido.getPlato().getId_plato());
 
         if (platoExistente != null) {
             pedido.setPlato(platoExistente);
